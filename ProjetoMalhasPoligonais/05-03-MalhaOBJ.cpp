@@ -497,7 +497,7 @@ void Inicializa (void)
     objetoWall = CarregaObjeto("wall.obj",true);
     objetoTree = CarregaObjeto("flower.obj",true);
     objetoFountain = CarregaObjeto("Small car.obj",true);
-    objetoAirplane = CarregaObjeto("airplane.obj", true);
+    objetoAirplane = CarregaObjeto("muro.obj", true);
     objetoF = CarregaObjeto("flower.obj", true);
 
     printf("Objeto carregado!");
