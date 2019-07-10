@@ -205,7 +205,7 @@ void Desenha(void)
     glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.8f);
 
 
-    glColor3f(0.98, 0.98, 0.98);
+    glColor3f(1.0, 1.0, 1.0);
 
     // Desenha o objeto 3D lido do arquivo com a cor corrente
     glPushMatrix();
@@ -574,7 +574,7 @@ int main(int argc, char *argv[])
     glutInitWindowSize(910,650);
 
     // Cria a janela passando como argumento o título da mesma
-    glutCreateWindow("Parque");
+    glutCreateWindow("Bateu o carro no múro - avião passando- SP");
 
     // Registra a função callback de redesenho da janela de visualização
     glutDisplayFunc(Desenha);
