@@ -574,7 +574,7 @@ int main(int argc, char *argv[])
     glutInitWindowSize(910,650);
 
     // Cria a janela passando como argumento o título da mesma
-    glutCreateWindow("Bateu o carro no muro e saiu voando- SP");
+    glutCreateWindow("Bateu o carro no muro e saiu voando");
 
     // Registra a função callback de redesenho da janela de visualização
     glutDisplayFunc(Desenha);
