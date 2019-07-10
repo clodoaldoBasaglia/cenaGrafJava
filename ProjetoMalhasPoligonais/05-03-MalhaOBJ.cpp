@@ -205,7 +205,7 @@ void Desenha(void)
     glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.8f);
 
 
-    glColor3f(1.0, 1.0, 1.0);
+    glColor3f(0.5f, 0.5f, 0.5f);
 
     // Desenha o objeto 3D lido do arquivo com a cor corrente
     glPushMatrix();
@@ -213,10 +213,10 @@ void Desenha(void)
     glRotatef(rotX,1,0,0);
     glRotatef(rotY,0,1,0);
 
-    glScalef(5, 5, 5);
-    glTranslated(transPlane, 10, -90);
-    glRotatef(600, 0, 1, 0);
-    glRotatef(-30, 0, 0, 1);
+    glScalef(2, 2, 2);
+    glTranslated(transPlane, 0, -90);
+    glRotatef(60, 0, 1, 0);
+    glRotatef(30, 0, 0, 1);
     glRotatef(rotaPlane, 1, 0, 0);
 
     DesenhaObjeto(objetoAirplane);
@@ -574,7 +574,7 @@ int main(int argc, char *argv[])
     glutInitWindowSize(910,650);
 
     // Cria a janela passando como argumento o título da mesma
-    glutCreateWindow("Bateu o carro no múro - avião passando- SP");
+    glutCreateWindow("Bateu o carro no muro e saiu voando- SP");
 
     // Registra a função callback de redesenho da janela de visualização
     glutDisplayFunc(Desenha);
