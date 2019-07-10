@@ -11,7 +11,7 @@ GLfloat angle, fAspect;
 GLfloat rotX, rotY, rotX_ini, rotY_ini;
 GLfloat obsX, obsY, obsZ, obsX_ini, obsY_ini, obsZ_ini;
 int x_ini,y_ini,bot;
-float transPlane = 50, rotaPlane = 0;
+float transPessoa = 50, rotaPlane = 0;
 
 //nevoa
 static GLint fogMode;
@@ -27,7 +27,7 @@ GLubyte * earthTex;
 OBJ *objetoWall;
 OBJ *objetoTree;
 OBJ *objetoFountain;
-OBJ *objetoAirplane;
+OBJ *objetoPessoa;
 OBJ *objetoF;
 
 
@@ -109,25 +109,25 @@ void Desenha(void)
     glPopMatrix();
 
 
-    /*==========OBJeTO FOUNTAIN===========*/
+    /*==========OBJeTO CARRO===========*/
 
-    GLfloat luzAmbienteFountain[4]= {0.1,0.1,0.1,1.0};
-    GLfloat luzDifusaFountain[4]= {1, 0.89, 0.77,1.0};	//meio alaranjado claro
-    GLfloat luzEspecularFountain[4]= {0.0, 0.0, 0.0,1.0};	// "brilho"
-    GLfloat posicaoLuzFountain[4]= {0, -156, 251, 2.0};
+    GLfloat luzAmbienteCarro[4]= {0.1,0.1,0.1,1.0};
+    GLfloat luzDifusaCarro[4]= {1, 0.89, 0.77,1.0};	//meio alaranjado claro
+    GLfloat luzEspecularCarro[4]= {0.0, 0.0, 0.0,1.0};	// "brilho"
+    GLfloat posicaoLuzCarro[4]= {0, -156, 251, 2.0};
 
 
     // Ativa o uso da luz ambiente
-    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbienteFountain);
+    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbienteCarro);
 
     // Define os parâmetros da luz
-    glLightfv(GL_LIGHT3, GL_POSITION, posicaoLuzFountain);
-    glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbienteFountain);
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusaFountain);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecularFountain);
+    glLightfv(GL_LIGHT3, GL_POSITION, posicaoLuzCarro);
+    glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbienteCarro);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusaCarro);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecularCarro);
 
 
-    glColor3f(0.0f, 0.0f, 0.0f);
+    glColor3f(1.0f, 0.0f, 0.0f);
 
     // Desenha o objeto 3D lido do arquivo com a cor corrente
     glPushMatrix();
@@ -176,28 +176,28 @@ void Desenha(void)
 
     /*==========OBJeTO Airplane===========*/
 
-    GLfloat luzAmbienteAirplane[4]= {0.1, 0.1, 0.1, 1.0};
-    GLfloat luzDifusaAirplane[4]= {1.0,1.0,1.0,1.0};	   	// "cor"
-    GLfloat luzEspecularAirplane[4]= {0.0f, 0.0f, 0.0f, 1.0};	// "brilho"
-    GLfloat posicaoLuzAirplane[4]= {transPlane, 25, -5, 0.0};
+    GLfloat luzAmbientePessoa[4]= {0.1, 0.1, 0.1, 1.0};
+    GLfloat luzDifusaPessoa[4]= {1.0,1.0,1.0,1.0};	   	// "cor"
+    GLfloat luzEspecularPessoa[4]= {0.0f, 0.0f, 0.0f, 1.0};	// "brilho"
+    GLfloat posicaoLuzPessoa[4]= {transPessoa, 25, -5, 0.0};
 
     // Capacidade de brilho do material
-    GLfloat especularidadeAirplane[4]= {5.0,5.0,5.0,1.0};
-    GLint especMaterialAirplane = 90;
+    GLfloat especularidadePessoa[4]= {5.0,5.0,5.0,1.0};
+    GLint especMaterialPessoa = 90;
 
     // Define a refletância do material
-    glMaterialfv(GL_FRONT,GL_SPECULAR, especularidadeAirplane);
+    glMaterialfv(GL_FRONT,GL_SPECULAR, especularidadePessoa);
     // Define a concentração do brilho
-    glMateriali(GL_FRONT,GL_SHININESS,especMaterialAirplane);
+    glMateriali(GL_FRONT,GL_SHININESS,especMaterialPessoa);
 
     // Ativa o uso da luz ambiente
-    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbienteAirplane);
+    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbientePessoa);
 
     // Define os parâmetros da luz de número 0
-    glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbienteAirplane);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaAirplane);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularAirplane);
-    glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuzAirplane);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbientePessoa);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaPessoa);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularPessoa);
+    glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuzPessoa);
 
     //ativar atenuação
     glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 0.8f);
@@ -214,12 +214,12 @@ void Desenha(void)
     glRotatef(rotY,0,1,0);
 
     glScalef(2, 2, 2);
-    glTranslated(transPlane, 0, -90);
+    glTranslated(transPessoa, 0, -90);
     glRotatef(60, 0, 1, 0);
     glRotatef(30, 0, 0, 1);
     glRotatef(rotaPlane, 1, 0, 0);
 
-    DesenhaObjeto(objetoAirplane);
+    DesenhaObjeto(objetoPessoa);
 
     glPopMatrix();
 
@@ -370,7 +370,7 @@ void Teclas (unsigned char tecla, int x, int y)
         LiberaObjeto(objetoWall);
         LiberaObjeto(objetoTree);
         LiberaObjeto(objetoFountain);
-        LiberaObjeto(objetoAirplane);
+        LiberaObjeto(objetoPessoa);
         LiberaObjeto(objetoF);
         exit(0);
     }
@@ -404,8 +404,8 @@ void TeclasEspeciais (int tecla, int x, int y)
         if(angle<=100) angle +=5;
         break;
     case GLUT_KEY_LEFT:
-        if(transPlane>=-150) transPlane -= 1;
-        else transPlane = 50;
+        if(transPessoa>=-150) transPessoa -= 1;
+        else transPessoa = 50;
         break;
     case GLUT_KEY_UP:
         rotaPlane -= 1;
@@ -497,7 +497,7 @@ void Inicializa (void)
     objetoWall = CarregaObjeto("wall.obj",true);
     objetoTree = CarregaObjeto("flower.obj",true);
     objetoFountain = CarregaObjeto("Small car.obj",true);
-    objetoAirplane = CarregaObjeto("muro.obj", true);
+    objetoPessoa = CarregaObjeto("muro.obj", true);
     objetoF = CarregaObjeto("flower.obj", true);
 
     printf("Objeto carregado!");
@@ -537,14 +537,14 @@ void Inicializa (void)
 
     //==============AIRPLANE===============
 
-    if(objetoAirplane->normais)
+    if(objetoPessoa->normais)
     {
         // Se já existirem normais no arquivo, apaga elas
-        free(objetoAirplane->normais);
-        objetoAirplane->normais_por_vertice = false;
+        free(objetoPessoa->normais);
+        objetoPessoa->normais_por_vertice = false;
     }
 
-    CalculaNormaisPorFace(objetoAirplane);
+    CalculaNormaisPorFace(objetoPessoa);
 
     //==============FLOWER===============
 
